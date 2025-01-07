@@ -17,12 +17,18 @@ func main(){
 	fmt.Printf("We have total of %v tickets and %v are still avialable\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your ticket to attend the conference")
 
-	var userName string
+	var firstName string
+	var lastName string
+	var email string
 	var userTickets int
 
 	// How to use input in golang and understand the pointer
 	fmt.Println("Enter your First Name: ")
-	fmt.Scan(&userName)
+	fmt.Scan(&firstName)
+	fmt.Println("Enter your last Name: ")
+	fmt.Scan(&lastName)
+	fmt.Println("Enter your email address: ")
+	fmt.Scan(&email)
 	fmt.Println("How many tickets you wanna book: ")
 	fmt.Scan(&userTickets)
 
@@ -33,6 +39,6 @@ func main(){
 
 	// fmt.Println(userName, userTickets)
 	
-	fmt.Printf("User %v booked %v tickets\n", userName, userTickets)
+	fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 	
 }
