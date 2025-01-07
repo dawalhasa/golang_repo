@@ -20,7 +20,7 @@ func main(){
 	var firstName string
 	var lastName string
 	var email string
-	var userTickets int
+	var userTickets uint
 
 	// How to use input in golang and understand the pointer
 	fmt.Println("Enter your First Name: ")
@@ -39,6 +39,9 @@ func main(){
 
 	// fmt.Println(userName, userTickets)
 	
-	fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	remainingTickets = remainingTickets - userTickets	
 	
+	fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+
 }
