@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import ( "fmt"
+	"strings" 
+)
 
 
 func main(){
@@ -21,46 +23,53 @@ func main(){
 	fmt.Printf("We have total of %v tickets and %v are still avialable\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your ticket to attend the conference")
 	
-	// booking[0] = "Dawa"
-	// booking[1] = "Nyima"
+	for {
+		// booking[0] = "Dawa"
+		// booking[1] = "Nyima"
 
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets uint
+		var firstName string
+		var lastName string
+		var email string
+		var userTickets uint
 
-	// How to use input in golang and understand the pointer
-	fmt.Println("Enter your First Name: ")
-	fmt.Scan(&firstName)
-	fmt.Println("Enter your last Name: ")
-	fmt.Scan(&lastName)
-	fmt.Println("Enter your email address: ")
-	fmt.Scan(&email)
-	fmt.Println("How many tickets you wanna book: ")
-	fmt.Scan(&userTickets)
+		// How to use input in golang and understand the pointer
+		fmt.Println("Enter your First Name: ")
+		fmt.Scan(&firstName)
+		fmt.Println("Enter your last Name: ")
+		fmt.Scan(&lastName)
+		fmt.Println("Enter your email address: ")
+		fmt.Scan(&email)
+		fmt.Println("How many tickets you wanna book: ")
+		fmt.Scan(&userTickets)
 
-	// Check how the actual values and pointer stores in the memory
-	// fmt.Println(conferenceName)
-	// fmt.Println(&conferenceName)
+		// Check how the actual values and pointer stores in the memory
+		// fmt.Println(conferenceName)
+		// fmt.Println(&conferenceName)
 
-	// fmt.Println(userName, userTickets)
-	
-	remainingTickets = remainingTickets - userTickets	
+		// fmt.Println(userName, userTickets)
+		
+		remainingTickets = remainingTickets - userTickets	
 
-	// bookings[0] = firstName + "  " + lastName
-	//Slice syntax prefix yeah use append module
-	bookings = append(bookings, firstName + "  " + lastName)
+		// bookings[0] = firstName + "  " + lastName
+		//Slice syntax prefix yeah use append module
+		bookings = append(bookings, firstName + "  " + lastName)
 
-	// fmt.Printf("The whole slice %v\n", bookings)
-	// fmt.Printf("The datatype of the slice %T\n", bookings)
-	// fmt.Printf("The value of the first slice %v\n", bookings[0])
-	// fmt.Printf("The size of the slice %v\n", len(bookings))
+		// fmt.Printf("The whole slice %v\n", bookings)
+		// fmt.Printf("The datatype of the slice %T\n", bookings)
+		// fmt.Printf("The value of the first slice %v\n", bookings[0])
+		// fmt.Printf("The size of the slice %v\n", len(bookings))
 
-	fmt.Printf("These are all out bookings %v\n", bookings)
+		fmt.Printf("These are all our bookings %v\n", bookings)
 
-	
-	
-	fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
-	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+		fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+
+		firstNames := []string{}
+		for _, booking := range bookings {
+			var names = strings.Fields(booking)
+			firstNames = append(firstNames, names[0])
+
+		}
+		fmt.Printf("The first name of booking are: %v\n", firstNames)
+	}
 
 }
