@@ -10,8 +10,10 @@ func main(){
 	conferenceName := "Go Conference"
 	const conferenceTickets int = 50
 	var remainingTickets uint = 50 
-	// Arrays and Slices in golang
-	var bookings [50]string
+	// Arrays syntax
+	// var bookings [50]string
+	// Slice syntax
+	var bookings []string
 
 	fmt.Printf("conferenceName is %T, conferenceTickets is %T, remainingTickets is %T\n", conferenceName, conferenceTickets, remainingTickets)
 
@@ -44,11 +46,17 @@ func main(){
 	// fmt.Println(userName, userTickets)
 	
 	remainingTickets = remainingTickets - userTickets	
-	bookings[0] = firstName + "  " + lastName
-	fmt.Printf("The whole array %v\n", bookings)
-	fmt.Printf("The datatype of the array %T\n", bookings)
-	fmt.Printf("The value of the first array %v\n", bookings[0])
-	fmt.Printf("The size of the array %v\n", len(bookings))
+
+	// bookings[0] = firstName + "  " + lastName
+	//Slice syntax prefix yeah use append module
+	bookings = append(bookings, firstName + "  " + lastName)
+
+	// fmt.Printf("The whole slice %v\n", bookings)
+	// fmt.Printf("The datatype of the slice %T\n", bookings)
+	// fmt.Printf("The value of the first slice %v\n", bookings[0])
+	// fmt.Printf("The size of the slice %v\n", len(bookings))
+
+	fmt.Printf("These are all out bookings %v\n", bookings)
 
 	
 	
