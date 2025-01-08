@@ -53,8 +53,6 @@ func main(){
 	fmt.Printf("The value of the first array %v\n", bookings[0])
 	fmt.Printf("The size of the array %v\n", len(bookings))
 
-
-	
 	
 	fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
