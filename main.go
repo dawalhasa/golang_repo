@@ -26,6 +26,9 @@ func main(){
 	for {
 		// booking[0] = "Dawa"
 		// booking[1] = "Nyima"
+	for {
+		// booking[0] = "Dawa"
+		// booking[1] = "Nyima"
 
 		var firstName string
 		var lastName string
@@ -41,12 +44,25 @@ func main(){
 		fmt.Scan(&email)
 		fmt.Println("How many tickets you wanna book: ")
 		fmt.Scan(&userTickets)
+		// How to use input in golang and understand the pointer
+		fmt.Println("Enter your First Name: ")
+		fmt.Scan(&firstName)
+		fmt.Println("Enter your last Name: ")
+		fmt.Scan(&lastName)
+		fmt.Println("Enter your email address: ")
+		fmt.Scan(&email)
+		fmt.Println("How many tickets you wanna book: ")
+		fmt.Scan(&userTickets)
 
 		// Check how the actual values and pointer stores in the memory
 		// fmt.Println(conferenceName)
 		// fmt.Println(&conferenceName)
 
 		// fmt.Println(userName, userTickets)
+		if userTickets > remainingTickets {
+			fmt.Printf("The %v tickets you booked is %v but we only have %v seats, sorry for the inconvinence.\n", conferenceName, userTickets, remainingTickets)
+			break
+		}
 		
 		remainingTickets = remainingTickets - userTickets	
 
@@ -59,17 +75,16 @@ func main(){
 		// fmt.Printf("The value of the first slice %v\n", bookings[0])
 		// fmt.Printf("The size of the slice %v\n", len(bookings))
 
-		fmt.Printf("These are all our bookings %v\n", bookings)
+	fmt.Printf("These are all out bookings %v\n", bookings)
 
-		fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	
+	
+	fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 
-		firstNames := []string{}
-		for _, booking := range bookings {
-			var names = strings.Fields(booking)
-			firstNames = append(firstNames, names[0])
-
+		if remainingTickets == 0 {
+			fmt.Printf("Our %v ticket is booked out, please come back next year", conferenceName)
+			break
 		}
-		fmt.Printf("The first name of booking are: %v\n", firstNames)
 	}
-
 }
