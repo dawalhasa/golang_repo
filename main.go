@@ -47,6 +47,10 @@ func main(){
 		// fmt.Println(&conferenceName)
 
 		// fmt.Println(userName, userTickets)
+		if userTickets > remainingTickets {
+			fmt.Printf("The %v tickets you booked is %v but we only have %v seats, sorry for the inconvinence.\n", conferenceName, userTickets, remainingTickets)
+			break
+		}
 		
 		remainingTickets = remainingTickets - userTickets	
 
@@ -59,17 +63,21 @@ func main(){
 		// fmt.Printf("The value of the first slice %v\n", bookings[0])
 		// fmt.Printf("The size of the slice %v\n", len(bookings))
 
-		fmt.Printf("These are all our bookings %v\n", bookings)
-
 		fmt.Printf("Thanks %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 
 		firstNames := []string{}
 		for _, booking := range bookings {
 			var names = strings.Fields(booking)
 			firstNames = append(firstNames, names[0])
-
 		}
-		fmt.Printf("The first name of booking are: %v\n", firstNames)
-	}
 
+		// fmt.Printf("These are all our bookings %v\n", bookings)
+
+		fmt.Printf("The first name of booking are: %v\n", firstNames)
+
+		if remainingTickets == 0 {
+			fmt.Printf("Our %v ticket is booked out, please come back next year", conferenceName)
+			break
+		}
+	}
 }
